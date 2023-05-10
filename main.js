@@ -62,7 +62,6 @@ selectButton.addEventListener('click',
                     // aggiungi +1 al puntggio
                     punteggio += 1;
 
-
                     // controlla che il numero nell'arrayBombe corrisponda con il numero della cella
                     for (let i = 0; i <= arrayBombe.length; i++) {
                         if (arrayBombe[i] === numeroDelleCelle) {
@@ -71,17 +70,17 @@ selectButton.addEventListener('click',
                             // scrivi punti su HTML
                             selectContaPunti.innerHTML = `HAI PERSO! Il tuo puteggio: ${punteggio}`;
 
-                            // 4, 5 88, 3
+                            // dai la classe red a tutte le celle che hanno numeri dell'arrayBombe
 
-                            // scopri tutte le bombe, dai la casse red a tutti i numeri dell'arryBombe
+                            // controlla che array
+                            for (let i = 0; i < arrayBombe.length; i++) {
+                                if (numeroDelleCelle.includes(arrayBombe)) {
+                                    console.log("ciao");
 
-
+                                }
+                            }
                         }
                     }
-
-                    // controlla che 
-
-
                 }
             );
         }
