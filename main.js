@@ -15,6 +15,8 @@ selectButton.addEventListener('click',
         // svuota container
         selectContainer.innerHTML = " ";
 
+        console.log(arrayBombe);
+
         // BONUS: Prendi il livello di difficolta dal DOM e settalo in una variabile
         const livelloSelezionato = document.getElementById('difficolta').value;
 
@@ -27,16 +29,7 @@ selectButton.addEventListener('click',
             numeroDiCelle = 49;
         }
 
-        // CREA LE BOMBE
-        // metti 16 numeri casuali in una array in base al numero di celle
 
-        while (arrayBombe.length <= 15) {
-            const numeriDelleBombe = randomNumber(1, numeroDiCelle);
-            if (!arrayBombe.includes(numeriDelleBombe)) {
-                arrayBombe.push(numeriDelleBombe);
-            }
-        }
-        console.log(arrayBombe);
 
         // Cicla per 100 volte le seguenti operazioni
         for (let i = 1; i <= numeroDiCelle; i++) {
@@ -60,26 +53,47 @@ selectButton.addEventListener('click',
                 createSquare.classList.add('square-hard');
             }
 
-            // Al Click
+            // Al Click su un quadrato
             createSquare.addEventListener('click',
                 function () {
                     // colora la cella al click
-                    createSquare.style.backgroundColor = 'blue';
+                    createSquare.classList.add("blue");
 
                     // aggiungi +1 al puntggio
                     punteggio += 1;
-                    // scrivi punti su HTML
-                    selectContaPunti.innerHTML = `Il tuo puteggio: ${punteggio}`;
+
 
                     // controlla che il numero nell'arrayBombe corrisponda con il numero della cella
                     for (let i = 0; i <= arrayBombe.length; i++) {
                         if (arrayBombe[i] === numeroDelleCelle) {
-                            console.log("bomb");
-                            createSquare.style.backgroundColor = 'red';
+                            // colora di rosso
+                            createSquare.classList.add("red");
+                            // scrivi punti su HTML
+                            selectContaPunti.innerHTML = `HAI PERSO! Il tuo puteggio: ${punteggio}`;
+
+                            // 4, 5 88, 3
+
+                            // scopri tutte le bombe, dai la casse red a tutti i numeri dell'arryBombe
+
+
                         }
                     }
+
+                    // controlla che 
+
+
                 }
             );
+        }
+
+        // CREA LE BOMBE
+        // metti 16 numeri casuali in una array in base al numero di celle
+        while (arrayBombe.length <= 15) {
+            const numeriDelleBombe = randomNumber(1, numeroDiCelle);
+            // controlla che nella array non include doppioni
+            if (!arrayBombe.includes(numeriDelleBombe)) {
+                arrayBombe.push(numeriDelleBombe);
+            }
         }
     }
 );
