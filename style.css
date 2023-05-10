@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+}
+
+
+select,
+button {
+    padding: 5px;
+}
+
+.back-container {
+    background-color: #4ef5df;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 50px 0px;
+    width: 600px;
+    height: 600px;
+}
+
+.square {
+    text-align: center;
+    border: 1px solid;
+}
+
+
+.square-easy {
+    flex-basis: calc((100% / 10) * 1);
+    max-width: calc((100% / 10) * 1);
+}
+
+.square-medium {
+    flex-basis: calc((100% / 9) * 1);
+    max-width: calc((100% / 9) * 1);
+}
+
+.square-hard {
+    flex-basis: calc((100% / 7) * 1);
+    max-width: calc((100% / 7) * 1);
+}
